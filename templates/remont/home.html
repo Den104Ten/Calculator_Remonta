@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<body>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <!-- Количество квадратных метров -->
+        <label for="numberInput">Площадь ремонта:</label>
+        <input type="number" id="numberInput" name="numberInput">
+        <br><br>
+
+        <label for="type_remont">Выберите тип ремонта:</label>
+        <select id="type_remont" name="type_remont">
+            {% for remont in remonts %}
+                <option>{{ remont.type_of_remont }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+
+        <label for="style_remont">Стиль ремонта:</label>
+        <select id="style_remont" name="style_remont">
+            {% for style in styles %}
+                <option>{{ style.style }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+
+
+        <label for="materials">Строительные материалы</label>
+        <br><br>
+        {% for material in materials_all %}
+        <div>
+            <input type="checkbox" id="{{ material.material }}" name="materials_all" value="{{ material.material }}" ... ... ... onchange="toggleInput(this)">
+            <label for="{{ material.material }}">{{ material.material }}</label>
+            <p>
+                <!-- Добавить проверку на отрицательные числа -->
+                <input type="number" id="number2Input_{{ material.material }}" name="numberOfMaterial" disabled ... ... ... onchange="resetInput(this)">
+            </p>
+        </div>
+        {% endfor %}
+        <br><br>
+
+        <script>
+        function toggleInput(checkbox) {
+            var inputId = "number2Input_" + checkbox.id;
+            var input = document.getElementById(inputId);
+            input.disabled = !checkbox.checked;
+            if (!checkbox.checked) {
+                input.value = ""; // Сбросить содержимое на пустую строку
+            }
+        }
+
+        function resetInput(input) {
+            if (!input.value && input.disabled) {
+                var checkboxId = input.id.replace("number2Input_", "");
+                var checkbox = document.getElementById(checkboxId);
+                checkbox.checked = false;
+            }
+        }
+        </script>
+
+
+        <input type="submit" value="Отправить">
+
+  </form>
+
+</body>
+</html>
