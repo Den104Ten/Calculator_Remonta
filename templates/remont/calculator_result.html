@@ -6,11 +6,36 @@
 </head>
 <body>
     <h2>Итоговая стоимость:</h2>
-    <p>Тип ремонта: {{ result_of_type.type_of_remont }}</p>
-    <p>Стоимость ремонта за метр квадратный: {{ result_of_type.price_square_meter }}</p>
+    <p>Площадь ремонта: {{ amount_of_square_meters }}м2</p>
+    <p>Число санузлов требующих ремонта: {{ count_toilets.count }}</p>
+    <p>Тип ремонта: {{ type_remont.type_of_remont }}</p>
+    <p>Стоимость ремонта за метр квадратный: {{ final_price_square_meter }}</p>
     <p>Стиль ремонта: {{ style_of_remont }}</p>
-    <p>Материалы используемые в ремонте: {{ materials }}</p>
-    <p>Финальное количество материалов: {{ final_list_of_materials }}</p>
+    <p>Примерное время работы: {{ final_work_time }} д.</p>
     <p>Приблизительная стоимость: {{ final_price }}</p>
+    <br><br>
+
+
+
+    <!-- Не работает, почему то возникает ошибка MultiValueDictKeyError-->
+    <h2>Заполните заявку и получите более точную оценку времени работы и стоимости:</h2>
+    <form method="post">
+    {% csrf_token %}
+        <div>
+            <!-- Форма для заявки. Сохраняется в базе данных. -->
+            <label for="full_name">Как к вам обращаться:</label>
+            <input type="text" id="full_name" name="full_name">
+            <br><br>
+            <label for="telefon">Телефон:</label>
+            <input type="tel" id="telefon" name="telefon">
+            <br><br>
+            <label for="mail">Почта:</label>
+            <input type="email" id="mail" name="mail">
+        </div>
+
+        <input type="submit" value="Отправить">
+    </form>
+
+
 </body>
 </html>

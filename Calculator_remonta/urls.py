@@ -21,3 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('remont.urls'))
 ]
+
+admin.site.index_title = 'Управление типами ремонтов'
