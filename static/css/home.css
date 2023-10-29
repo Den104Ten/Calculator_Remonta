@@ -1,0 +1,74 @@
+label {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+input:hover {
+    outline: 2px solid #3760ff;
+}
+
+input:focus {
+    outline: 2px solid #3760ff;
+}
+
+
+
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+select:hover {
+    outline: 2px solid #3760ff;
+}
+
+select:focus {
+    outline: 2px solid #3760ff;
+}
+
+
+form {
+    position: fixed;
+    margin-top: 100px;
+    margin-left: 650px;
+    /* default: margin: 850px auto 0 */
+}
+
+
+.main_text {
+    /* margin: 60px auto 0; */
+    margin-left: 610px;
+    color: white;
+    font-size: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

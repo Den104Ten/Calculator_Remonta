@@ -1,11 +1,11 @@
+{% extends 'remont/base.html' %}
+{% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Calculator</title>
-</head>
-<body>
+{% block content %}
+    <!-- При наследовании страницы, нужно писать подсоединение css в блоке -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+
+    <h2 class="main_text">Калькулятор стоимости ремонта</h2>
 
     <form method="post">
         {% csrf_token %}
@@ -60,6 +60,4 @@
         <input type="submit" value="Отправить">
 
   </form>
-
-</body>
-</html>
+{% endblock %}

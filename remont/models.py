@@ -11,6 +11,9 @@ class PriceSquareArea(models.Model):
         verbose_name = "Тип ремонта. Стоимость за м2"
         verbose_name_plural = "Тип ремонта. Стоимость за м2"
 
+    def __str__(self):
+        return self.type_of_remont
+
 
 class CountToilets(models.Model):
     count = models.IntegerField()
@@ -20,6 +23,9 @@ class CountToilets(models.Model):
         verbose_name = "Количество санузлов"
         verbose_name_plural = "Количество санузлов"
 
+    def __str__(self):
+        return self.count
+
 # Стиль ремонта
 class StyleRemont(models.Model):
     style = models.CharField(max_length=70)
@@ -27,6 +33,9 @@ class StyleRemont(models.Model):
     class Meta:
         verbose_name = "Стиль ремонта"
         verbose_name_plural = "Стиль ремонта"
+
+    def __str__(self):
+        return self.style
 
 # Отталкиваюсь от новостройки или вторички потом уже от типа помещения (Квартира, Офис, Коттедж)
 class TypeBuilding(models.Model):
@@ -38,6 +47,9 @@ class TypeBuilding(models.Model):
         verbose_name = r"Тип дома. Новостройка\вторичка"
         verbose_name_plural = r"Тип дома. Новостройка\вторичка"
 
+    def __str__(self):
+        return self.building
+
 class TypeHouse(models.Model):
     house = models.CharField(max_length=50)
     price = models.FloatField()
@@ -46,7 +58,8 @@ class TypeHouse(models.Model):
         verbose_name = "Тип помещения. Квартира, Коттедж, Офис"
         verbose_name_plural = "Тип помещения. Квартира, Коттедж, Офис"
 
-
+    def __str__(self):
+        return self.house
 
 
 

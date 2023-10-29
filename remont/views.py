@@ -49,3 +49,10 @@ class RemontHomeView(View):
                 }
         return render(request, 'remont/calculator_result.html', context=data)
 
+
+class BaseView(View):
+
+    def get(self, request):
+        return render(request, 'remont/base.html')
+
+
